@@ -4,17 +4,21 @@ import WeatherService from '../services/weather'
 class Weather extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: "unknow", hora: "" };
+        this.state = { name: "", hora: "" };
         this.handleChange = this.handleChange.bind(this);
 
     }
     renderProduct = () => {
         return <h1>status: {this.state.hora}</h1>;
     };
+    renderTitle = (name) => {
+        if (name) {
+            return <h2>Hello, {name}!</h2>
+        }
+    };
 
     getProducts = async () => {
         let res = await WeatherService.getAll();
-        console.log(' res: ', res);
         this.setState({ hora: res.status });
     }
 
@@ -25,17 +29,15 @@ class Weather extends React.Component {
         this.getProducts();
     }
     render() {
-
         return (
             <div>
                 {this.renderProduct()}
-                <h2>Hello, {this.state.name}!</h2>
                 <form>
                     <label>
-                        Change name: <br></br>
-                        <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
+                        Add Name -  <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
                     </label>
                 </form>
+                {this.renderTitle(this.state.name)}
             </div>
         );
     }

@@ -1,3 +1,2 @@
-# 1 cd server
-
-# 2 npm run test
+## 1. cd server
+## 2. npm run test

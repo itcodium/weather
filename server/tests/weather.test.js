@@ -47,6 +47,20 @@ describe('Weather', function () {
                 done();
             });
     });
+
+    it("Current city not found", function (done) {
+        chai.request(URL)
+            .get("/current/Lorem test...")
+            .end(function (err, res) {
+                FileHelper.saveToFile(__dirname + '/data/currentCityNotfound.json', JSON.stringify(res));
+                chai.expect(res.status).to.equal(500);
+                chai.expect(res).to.be.json;
+                chai.expect(JSON.parse(res.text)).to.have.property('error');
+                chai.expect(JSON.parse(res.text).error).equal("City not found.");
+                done();
+            });
+    });
+
     it("Current no city", function (done) {
         chai.request(URL)
             .get("/current")
@@ -78,6 +92,19 @@ describe('Weather', function () {
                 chai.expect(JSON.parse(res.text)).to.have.property('city');
                 chai.expect(JSON.parse(res.text).city).to.have.property('name');
                 chai.expect(JSON.parse(res.text).city.name).equal("Ramos Mejía");
+                done();
+            });
+    });
+
+    it("Forecast city not found", function (done) {
+        chai.request(URL)
+            .get("/forecast/test123123")
+            .end(function (err, res) {
+                FileHelper.saveToFile(__dirname + '/data/forecastCityNotFound.json', JSON.stringify(res));
+                chai.expect(res.status).to.equal(500);
+                chai.expect(res).to.be.json;
+                chai.expect(JSON.parse(res.text)).to.have.property('error');
+                chai.expect(JSON.parse(res.text).error).equal("City not found.");
                 done();
             });
     });

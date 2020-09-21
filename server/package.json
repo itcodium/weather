@@ -5,13 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start-server": "nodemon --exec  babel-node index.js",
-    "start-test": "mocha app/tests/weather.test.js",
+    "start-test": "mocha tests/weather.test.js",
     "test": "concurrently --kill-others-on-fail \" npm run start-server \" \" npm run start-test\" ",
     "start": "concurrently --kill-others-on-fail \" npm run start-server \" \"cd ..  && npm run start-client\""
   },
   "nodemonConfig": {
     "ignore": [
-      "/app/tests/data/*.*"
+      "/tests/data/*.*"
     ]
   },
   "dependencies": {

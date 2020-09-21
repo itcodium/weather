@@ -16,7 +16,7 @@ export default class WeatherController {
                 }
             })
             .catch(error => {
-                return res.status(500).json(error);
+                return res.status(500).json({ "error": "City not found." });
             });
     }
     static getLocation(req, res) {

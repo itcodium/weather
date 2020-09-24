@@ -20,7 +20,7 @@ class Weather extends React.Component {
         this.mapper = new WeatherMapper();
     }
     callCurrentWeather = async (city) => {
-        this.setState({ isLoading: true, current: null });
+        this.setState({ isLoading: true, current: null, cityNotFound: null });
         try {
             let response = await WeatherService.getCurrent(city);
             let current = this.mapper.current(response);
@@ -31,7 +31,7 @@ class Weather extends React.Component {
 
     }
     callForecastWeather = async (city) => {
-        this.setState({ isLoadingForeCast: true, forecast: null });
+        this.setState({ isLoadingForeCast: true, forecast: null, cityNotFound: null });
         try {
             let response = await WeatherService.getForecast(city);
             let forecast = this.mapper.forecastGetFiveDays(response);

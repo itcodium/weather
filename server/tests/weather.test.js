@@ -35,7 +35,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/current/Liniers")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/currentCity.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(200);
                 chai.expect(res).to.be.json;
                 chai.expect(res).to.have.property('status');
@@ -52,7 +51,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/current/Lorem test...")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/currentCityNotfound.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(500);
                 chai.expect(res).to.be.json;
                 chai.expect(JSON.parse(res.text)).to.have.property('error');
@@ -65,7 +63,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/current")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/currentCityNo.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(200);
                 chai.expect(res).to.be.json;
                 chai.expect(res).to.have.property('status');
@@ -83,7 +80,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/forecast/Ramos Mejía")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/forecastCity.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(200);
                 chai.expect(res).to.be.json;
                 chai.expect(res).to.have.property('status');
@@ -100,7 +96,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/forecast/test123123")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/forecastCityNotFound.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(500);
                 chai.expect(res).to.be.json;
                 chai.expect(JSON.parse(res.text)).to.have.property('error');
@@ -113,7 +108,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/forecast")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/forecastCityNo.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(200);
                 chai.expect(res).to.be.json;
                 chai.expect(res).to.have.property('status');

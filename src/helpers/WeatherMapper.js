@@ -21,7 +21,9 @@ class WeatherMapper {
         { label: "Helsinki", value: "helsinki" },
         { label: "London", value: "London" },
         { label: "Shanghai", value: "Shanghai" },
-        { label: "San Francisco", value: "San Francisco" }]
+        { label: "San Francisco", value: "San Francisco" },
+        { label: "Ciudad que no existe (*)", value: "no existe" },
+        ]
     }
 }
 export default WeatherMapper;

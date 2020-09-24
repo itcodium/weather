@@ -19,8 +19,14 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "axios": "^0.16.2",
+    "babel-plugin-react-scoped-css": "^1.1.0",
+    "css-loader": "^4.3.0",
     "express": "4.17.1",
-    "rimraf": "^3.0.2"
+    "react-scoped-styles": "^0.3.2",
+    "rimraf": "^3.0.2",
+    "scoped-css-loader": "^1.0.0",
+    "style-loader": "^1.2.1",
+    "styled-components": "^5.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,12 +38,13 @@
     "@babel/preset-env": "^7.11.5",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "concurrently": "^4.1.2",
     "eslint": "^7.9.0",
     "eslint-plugin-react": "^7.20.6",
     "mocha": "^8.1.3",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "postcss-scss": "^3.0.1"
   }
 }

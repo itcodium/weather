@@ -26,7 +26,7 @@ export default class WeatherController {
         WeatherController.getData(API_LOCATION, req, res, next);
     }
     static getWeatherUrl(city, service) {
-        return API_URL + service + "?q=" + encodeURI(city) + "&appid=" + API_KEY;
+        return API_URL + service + "?q=" + encodeURI(city) + "&appid=" + API_KEY + "&units=metric";
     }
     static getCurrent(req, res) {
         const url = WeatherController.getWeatherUrl(req.city, 'weather');

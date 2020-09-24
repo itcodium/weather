@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    ["react-css-modules", {
+      "option": "generateScopedName"
+    }]
+  ]
+  "filetypes": {
+  ".scss": {
+    "syntax": "postcss-scss"
+  }
+	}
+}

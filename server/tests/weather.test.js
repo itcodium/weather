@@ -16,7 +16,6 @@ describe('Weather', function () {
         chai.request(URL)
             .get("/location")
             .end(function (err, res) {
-                FileHelper.saveToFile(__dirname + '/data/location.json', JSON.stringify(res));
                 chai.expect(res.status).to.equal(200);
                 chai.expect(res).to.be.json;
                 chai.expect(res).to.have.property('status');

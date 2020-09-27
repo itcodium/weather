@@ -9,7 +9,7 @@ export default class WeatherController {
         axios.get(url)
             .then(response => {
                 if (next) {
-                    req.city = response.data.city;
+                    req.params.city = response.data.city;
                     next();
                 } else {
                     return res.status(200).json(response.data);
@@ -29,15 +29,12 @@ export default class WeatherController {
         return API_URL + service + "?q=" + encodeURI(city) + "&appid=" + API_KEY + "&units=metric";
     }
     static getCurrent(req, res) {
-        const url = WeatherController.getWeatherUrl(req.city, 'weather');
+        const url = WeatherController.getWeatherUrl(req.params.city, 'weather');
         WeatherController.getData(url, req, res);
     }
     static getForecast(req, res) {
-        const url = WeatherController.getWeatherUrl(req.city, 'forecast');
+        const url = WeatherController.getWeatherUrl(req.params.city, 'forecast');
         WeatherController.getData(url, req, res);
     }
-    static city(req, res, next, city) {
-        req.city = city ? city : null;
-        return next();
-    }
+
 }
